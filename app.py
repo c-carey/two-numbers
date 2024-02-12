@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 app.route('/')
 def index():
-    render_template("index.html")
+    return render_template("index.html")
 
 app.route('/result')
 def result():
@@ -23,3 +23,5 @@ def result():
         result = "Division by zero not supported"
     return render_template("result.html", result=result, first=first, second=second, operand=operand)
 
+if __name__ == "__main__":
+    app.run()
