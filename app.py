@@ -1,12 +1,17 @@
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
+@app.route('/')
 
-app.route('/')
+
 def index():
-    render_template("index.html")
+    return render_template("index.html")
 
-app.route('/result')
+
+@app.route('/result')
+
+
 def result():
     first = int(request.args.get('first'))
     second = int(request.args.get('second'))
@@ -23,3 +28,6 @@ def result():
         result = "Division by zero not supported"
     return render_template("result.html", result=result, first=first, second=second, operand=operand)
 
+
+if __name__ == "__main__":
+    app.run()
